@@ -14,10 +14,21 @@ def color_function(name):
         lst.append(msg)
     return lst
 
-    
 
 
+def get_name():
+    go = True
+    while go:
+        name = input('What is your name?')
+        if name == '':
+            print('Please provide your name!')
+        elif name == 'Bally':
+            print('You can\'t use this Bally')
+        else:
+            go = False 
+    lst = color_function(name)
+    for i in lst:
+        print(i)
 
-lst = color_function('Baniel')
-for i in lst:
-    print(i)
+get_name()
+
