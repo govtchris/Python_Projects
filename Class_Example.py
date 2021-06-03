@@ -21,4 +21,5 @@ class dog(mammal):
 #creating a bird class from the parent mammal class
 class bird(mammal):
     fur = "Feathers, not fur"
+    mouth = "Beak"
     
