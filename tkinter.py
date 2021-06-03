@@ -17,6 +17,7 @@ class ParentWindow(Frame):
     
         self.varFName = StringVar()
         self.varLName = StringVar()
+
         self.lblFName = Label(self.master,text='First Name: ', font=("Helvetica", 16), fg='black', bg='lightgray' )
         self.lblFName.grid(row=0, column=0, padx=(30,0), pady=(30,0))
 
