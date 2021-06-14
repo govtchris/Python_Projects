@@ -11,7 +11,7 @@ class ParentWindow(Frame):
         Frame.__init__(self)
 
         self.master = master
-        self.master.resizable(width=False, height=False)
+        self.master.resizable(width=True, height=True)
         self.master.geometry('{}x{}'.format(481, 203))
         self.master.title('Check Files')
         self.master.config(bg='lightgrey')
@@ -69,7 +69,7 @@ class ParentWindow(Frame):
             path = os.path.join(src, i)
             st = os.stat(path)
             mtime = dt.datetime.fromtimestamp(st.st_mtime)
-            if mtime < ago:
+            if mtime > ago:
                 shutil.move(path, des) 
 
     #function for the close program button
