@@ -42,27 +42,28 @@ class ParentWindow(Frame):
         self.btnClose = Button(self.master, text='Close Program', font=('Helvetica', 10), width=13, height=3, bg='lightgrey', command=self.close)
         self.btnClose.grid(row=5, column=12, padx=(30,0), pady=(10,30), sticky=NE)
 
-        self.Label3 = Label(self.master, text='', font=("Helvetica", 16), width=30)
-        self.Label3.grid(row=6, column=0, columnspan=12, padx=(30,0), pady=(10,30), sticky=NE)
+        #This label is commented out but can be used in case the user would like to see both folders that were chosen to be checked.
+        #self.Label3 = Label(self.master, text='', font=("Helvetica", 16), width=30)
+        #self.Label3.grid(row=6, column=0, columnspan=12, padx=(30,0), pady=(10,0), sticky=NE)
 
         
     #functions for selecting a directory from the os and then displaying it in the proper area.
+    #This code is specifically for Mac OS. The +"/" had to be added to the file path so it would be recognized. 
     def askDir1(self):
         x= tkinter.filedialog.askdirectory()
         self.txtLabel1.config(text=x +"/")
-        #self.Label3.config(text=x)
 
     def askDir2(self):
         x= tkinter.filedialog.askdirectory()
         self.txtLabel2.config(text=x + "/")
-        #self.Label3.config(text=x)
-
+    
+    #Creating the check file and transfer function.
     def check(self):
         src = self.txtLabel1.cget("text")
         des = self.txtLabel2.cget("text")
         now = dt.datetime.now()
         ago = now-dt.timedelta(hours=24)
-        self.Label3.config(text=src+ " " +des)
+        #self.Label3.config(text=src+ " " +des)
         files = os.listdir(src)
         for i in files:
             path = os.path.join(src, i)
